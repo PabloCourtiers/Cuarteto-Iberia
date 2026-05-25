@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cuarteto Iberia</title>
+  <meta name="description" content="Cuarteto Iberia — cuarteto de cuerda profesional. Conciertos, biografía, multimedia y contacto." />
+  <meta property="og:title" content="Cuarteto Iberia" />
+  <meta property="og:description" content="Cuarteto de cuerda profesional." />
+  <meta property="og:type" content="website" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/home.css" />
+
+  <link rel="preload" as="image" href="assets/img/home/photo-quartet.png" />
+</head>
+<body>
+
+  <!-- ===== NAV ===== -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="index.html" class="nav__brand" aria-label="Cuarteto Iberia — Inicio">
+        <span>Cuarteto</span><span>Iberia</span>
+      </a>
+      <ul class="nav__list" id="nav-list">
+        <li><a href="cuarteto.html" class="nav__link">El cuarteto</a></li>
+        <li><a href="#agenda"       class="nav__link">Agenda</a></li>
+        <li><a href="media.html"    class="nav__link">Media</a></li>
+        <li><a href="contacto.html" class="nav__link">Contacto</a></li>
+      </ul>
+      <button class="nav__burger" aria-expanded="false" aria-controls="nav-list" aria-label="Abrir menú">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO + COLLAGE ===== -->
+    <section class="hero" data-section="hero" aria-label="Cuarteto Iberia">
+      <div class="hero__inner">
+        <div class="hero__collage" role="img" aria-label="Retratos del Cuarteto Iberia sobre composición tipo collage editorial">
+
+          <!-- CAPA 1: texturas de color con blend modes -->
+          <img class="piece piece--coral-tex-l" src="assets/img/home/texture-coral-large.png" alt="" aria-hidden="true" />
+          <img class="piece piece--coral-tex-s" src="assets/img/home/texture-coral-small.png" alt="" aria-hidden="true" />
+          <img class="piece piece--teal"        src="assets/img/home/shape-teal.png"          alt="" aria-hidden="true" />
+
+          <!-- CAPA 2: fotos individuales -->
+          <img class="piece piece--violinist-bw"     src="assets/img/home/photo-violinist-bw.png"
+               alt="Violinista del Cuarteto Iberia, retrato en blanco y negro" />
+          <img class="piece piece--violinist-color"  src="assets/img/home/photo-violinist-color.png"
+               alt="Violinista del Cuarteto Iberia con su violín" />
+          <img class="piece piece--cellist"          src="assets/img/home/photo-cellist-color.png"
+               alt="Violonchelista del Cuarteto Iberia con su violonchelo" />
+          <img class="piece piece--violinist-female" src="assets/img/home/photo-violinist-female-color.png"
+               alt="Violinista del Cuarteto Iberia, primer plano" />
+
+          <!-- CAPA 3: papeles, periódico, texturas de tinta -->
+          <img class="piece piece--paper-h1"  src="assets/img/home/paper-strip-h1.png"   alt="" aria-hidden="true" />
+          <img class="piece piece--paper-h2"  src="assets/img/home/paper-strip-h2.png"   alt="" aria-hidden="true" />
+          <img class="piece piece--paper-v"   src="assets/img/home/paper-strip-vertical.png" alt="" aria-hidden="true" />
+          <img class="piece piece--newspaper" src="assets/img/home/newspaper.png"         alt="" aria-hidden="true" />
+          <img class="piece piece--ink-l"     src="assets/img/home/texture-ink-large.png" alt="" aria-hidden="true" />
+          <img class="piece piece--ink-s"     src="assets/img/home/texture-ink-small.png" alt="" aria-hidden="true" />
+          <img class="piece piece--shapes"    src="assets/img/home/texture-shapes-strip.png" alt="" aria-hidden="true" />
+          <img class="piece piece--coral"     src="assets/img/home/shape-coral.png"      alt="" aria-hidden="true" />
+
+          <!-- CAPA 4: PLATFORMS grises (hard-light) bajo el cuarteto.
+               Funcionan como una "tarima" para que el grupo no flote. -->
+          <div class="piece piece--platform piece--platform-1" aria-hidden="true"></div>
+          <div class="piece piece--platform piece--platform-2" aria-hidden="true"></div>
+          <div class="piece piece--platform piece--platform-3" aria-hidden="true"></div>
+
+          <!-- CAPA 5: protagonista — foto del cuarteto -->
+          <img class="piece piece--quartet" data-quartet src="assets/img/home/photo-quartet.png"
+               alt="Los cuatro miembros del Cuarteto Iberia posando con sus instrumentos" />
+        </div>
+      </div>
+
+      <!-- BANDA AZUL + LOGO — viven DENTRO del hero (sus 100vh).
+           La banda azul es absoluta al bottom del hero; el logo está
+           encima, atravesando la banda por su línea media. -->
+      <img class="hero__brand" src="assets/img/logo/ci-logo-line.svg" alt="Cuarteto Iberia" />
+    </section>
+
+    <!-- ===== REVIEW DESTACADO ===== -->
+    <section class="review" aria-label="Prensa">
+      <div class="review__inner">
+        <span class="eyebrow">Prensa</span>
+        <p class="review__quote">
+          «Uno de los cuartetos más <span class="accent">prominentes</span> de la escena.»
+          <span class="review__cite">Melómano digital</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== BIO + CTA ===== -->
+    <section class="bio" aria-label="El cuarteto">
+      <div class="bio__inner">
+        <div class="bio__copy">
+          <span class="eyebrow">El cuarteto</span>
+          <h2 class="bio__title">Madrid, 2018. Cuatro músicos, una <span class="accent">visión.</span></h2>
+          <p class="bio__text">
+            El Cuarteto Iberia mantiene la tradición cuartetística de sus maestros aportando un nuevo
+            punto de vista a la interpretación de las grandes obras del género. Desde 2022 es cuarteto
+            residente del Museo Lázaro Galdiano de Madrid.
+          </p>
+          <a href="cuarteto.html" class="btn bio__cta">
+            Conoce al cuarteto
+            <span class="btn__arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+        <div class="bio__separator" aria-hidden="true"></div>
+        <div class="bio__visual">
+          <img class="bio__photo" src="assets/img/home/bio-photo.jpg" alt="Cuarteto Iberia en composición artística difusa." />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== AGENDA ===== -->
+    <section class="agenda" id="agenda" aria-label="Próximos conciertos">
+      <div class="agenda__inner">
+        <div class="agenda__head">
+          <div>
+            <span class="eyebrow">Próximos conciertos</span>
+            <h2 class="agenda__title">En <span class="accent">agenda.</span></h2>
+          </div>
+          <a href="agenda.html" class="btn btn--ghost">
+            Ver agenda completa
+            <span class="btn__arrow" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <ol class="agenda__list">
+          <li class="agenda__item">
+            <span class="agenda__num">01</span>
+            <div class="agenda__date">
+              <span class="agenda__day">14</span>
+              <span class="agenda__moyr">Jun · 2026</span>
+            </div>
+            <div>
+              <h3 class="agenda__venue">Museo Lázaro Galdiano</h3>
+              <p class="agenda__loc">Madrid, España</p>
+            </div>
+            <div class="agenda__meta">
+              <span>12:00h</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </li>
+
+          <li class="agenda__item">
+            <span class="agenda__num">02</span>
+            <div class="agenda__date">
+              <span class="agenda__day">04</span>
+              <span class="agenda__moyr">Jul · 2026</span>
+            </div>
+            <div>
+              <h3 class="agenda__venue">Festival Torre de Villaescusa</h3>
+              <p class="agenda__loc">Villaescusa del Bardal, Cantabria</p>
+            </div>
+            <div class="agenda__meta">
+              <span>Por confirmar</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </li>
+
+          <li class="agenda__item">
+            <span class="agenda__num">03</span>
+            <div class="agenda__date">
+              <span class="agenda__day">17</span>
+              <span class="agenda__moyr">Jul · 2026</span>
+            </div>
+            <div>
+              <h3 class="agenda__venue">Fundación BBVA<br>Palacio del Marqués de Salamanca</h3>
+              <p class="agenda__loc">Madrid, España</p>
+            </div>
+            <div class="agenda__meta">
+              <span>20:00h</span>
+              <span aria-hidden="true">→</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <a class="footer__brand" href="index.html" aria-label="Cuarteto Iberia — Inicio">
+            <img class="footer__logo" src="assets/img/logo/ci-logo-horizontal.svg" alt="Cuarteto Iberia" />
+          </a>
+          <p class="footer__tag">Cuarteto de cuerda profesional. Madrid, desde 2018.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="cuarteto.html">El cuarteto</a></li>
+            <li><a href="agenda.html">Agenda</a></li>
+            <li><a href="media.html">Media</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Contacto</h4>
+          <ul>
+            <li><a href="mailto:info@cuartetoiberia.com">info@cuartetoiberia.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 Cuarteto Iberia · Todos los derechos reservados</span>
+        <div class="footer__socials" aria-label="Redes sociales">
+          <a href="https://www.instagram.com/cuarteto_iberia/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.facebook.com/Cuartetoiberia/" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3.1H13V8.9c0-.9.2-1.5 1.5-1.5H16V4.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.1 1.5-4.1 4.2v2.3H7v3.1h2.4V22H13z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/channel/UC3mHgCVyuCSSvWQUoyTivtw" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.8 4 12 4 12 4s-4.8 0-7.9.2c-.4.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.8 0 7.9-.2c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.2-3.8-.2-3.8zM10 15V8l6 3.5-6 3.5z"/></svg>
+          </a>
+          <a href="https://mobile.twitter.com/cuartetoiberia" aria-label="X / Twitter" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.66l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

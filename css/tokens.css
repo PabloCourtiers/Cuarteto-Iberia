@@ -1,0 +1,148 @@
+/* =========================================================
+   DESIGN TOKENS — Cuarteto Iberia
+   ---------------------------------------------------------
+   Único archivo que define la "personalidad visual" del
+   sistema: paleta, tipografías, ritmo, breakpoints.
+   Para reutilizar este sistema en otro portfolio artístico,
+   basta con cambiar los valores de este archivo.
+   ========================================================= */
+
+/* ---------- Fuentes locales ---------- */
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/Inter-Variable.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "The Future";
+  src: url("../assets/fonts/TheFuture-Light.otf") format("opentype");
+  font-weight: 300; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "The Future";
+  src: url("../assets/fonts/TheFuture-LightItalic.otf") format("opentype");
+  font-weight: 300; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "The Future";
+  src: url("../assets/fonts/TheFuture-Regular.otf") format("opentype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "The Future";
+  src: url("../assets/fonts/TheFuture-RegularItalic.otf") format("opentype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "The Future";
+  src: url("../assets/fonts/TheFuture-Medium.otf") format("opentype");
+  font-weight: 500; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "The Future";
+  src: url("../assets/fonts/TheFuture-Bold.otf") format("opentype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
+
+:root {
+  /* Paleta — extraída de los assets del collage */
+  --color-ink:        #0a0a0a;
+  --color-paper:      #f4f0e8;   /* crema cálido (inspirado en Unfold) */
+  --color-paper-2:    #e8e2d4;
+  --color-white:      #ffffff;
+  --color-coral:      #7d2f36;
+  --color-coral-soft: #d05058;   /* acento más vivo para el ✱ */
+  --color-teal:       #225055;
+  --color-muted:      #6b6b6b;
+  --color-line:       rgba(10, 10, 10, 0.12);
+
+  /* Colores específicos de headings */
+  --color-display:        #1a2732;   /* azul-petróleo oscuro: base de los títulos */
+  --color-display-accent: #d05058;   /* salmón: palabras destacadas dentro de los títulos */
+  --color-divider-band:   #1a2732;   /* banda divisoria entre hero y resto */
+
+  /* Superficies */
+  --surface-nav: rgba(255, 253, 248, 0.55);
+  --surface-nav-border: rgba(255, 255, 255, 0.7);
+  --surface-card: #fffefa;
+
+  /* Tipografía */
+  --font-display: "The Future", "Inter", system-ui, sans-serif;
+  --font-body:    "Inter", system-ui, sans-serif;
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-bold: 700;
+
+  /* Escala tipográfica fluida */
+  --fs-100: clamp(0.78rem, 0.76rem + 0.10vw, 0.85rem);
+  --fs-200: clamp(0.88rem, 0.85rem + 0.15vw, 0.95rem);
+  --fs-300: clamp(1.00rem, 0.96rem + 0.20vw, 1.10rem);
+  --fs-400: clamp(1.20rem, 1.10rem + 0.40vw, 1.40rem);
+  --fs-500: clamp(1.50rem, 1.30rem + 0.80vw, 2.00rem);
+  --fs-600: clamp(2.00rem, 1.60rem + 1.60vw, 3.00rem);
+  --fs-700: clamp(2.75rem, 2.20rem + 2.30vw, 4.50rem);
+  --fs-800: clamp(3.50rem, 2.50rem + 4.00vw, 6.50rem);
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.2;
+  --lh-normal: 1.5;
+  --lh-loose: 1.7;
+
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.04em;
+  --tracking-mega: 0.18em;
+
+  /* Espaciados */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --space-10: 8rem;
+  --space-11: 12rem;
+
+  /* Radios */
+  --radius-pill: 999px;
+  --radius-lg: 24px;
+  --radius-md: 12px;
+  --radius-sm: 6px;
+
+  /* Sombras */
+  --shadow-soft: 0 8px 24px rgba(10, 10, 10, 0.06);
+  --shadow-nav:  0 2px 20px rgba(10, 10, 10, 0.08);
+  --shadow-card: 0 1px 0 rgba(10,10,10,0.03), 0 4px 14px rgba(10,10,10,0.04);
+
+  /* Layout */
+  --container-max: 1320px;
+  --gutter:        clamp(1rem, 3vw, 2.5rem);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 180ms;
+  --dur-base: 320ms;
+  --dur-slow: 600ms;
+
+  /* z-index */
+  --z-nav: 100;
+  --z-modal: 1000;
+
+  /* Logo de cierre del hero (ci-logo-line.svg).
+     viewBox 1920×226 → aspect-ratio ≈ 8.5.
+     La banda azul mide EXACTAMENTE la mitad del logo:
+     así el logo queda mitad sobre el collage y mitad sobre la banda. */
+  --logo-aspect: 8.495;
+  --logo-width: calc(100vw - 2 * var(--gutter));
+  --logo-height: calc(var(--logo-width) / var(--logo-aspect));
+  --band-height: calc(var(--logo-height) / 2);
+}

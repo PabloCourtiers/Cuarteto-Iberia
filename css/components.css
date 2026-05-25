@@ -1,0 +1,286 @@
+/* =========================================================
+   COMPONENTS — piezas reutilizables (nav, footer, eyebrow, btn)
+   ========================================================= */
+
+/* =========== NAV (pill flotante con blur) =========== */
+.site-header {
+  position: fixed;
+  top: var(--space-4);
+  left: 0; right: 0;
+  z-index: var(--z-nav);
+  pointer-events: none;
+}
+.nav {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  width: min(100% - var(--space-6), var(--container-max));
+  margin-inline: auto;
+  padding: var(--space-3) var(--space-5);
+  background: var(--surface-nav);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+          backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--surface-nav-border);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-nav);
+}
+.nav__brand {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 0.95;
+  font-family: var(--font-display);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-300);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink);
+  white-space: nowrap;
+}
+.nav__list {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--space-5), 4vw, var(--space-8));
+}
+.nav__link {
+  position: relative;
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-300);
+  color: var(--color-ink);
+  padding: var(--space-2) 0;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+.nav__link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 4px;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.nav__link:hover::after,
+.nav__link[aria-current="page"]::after,
+.nav__link:focus-visible::after { transform: scaleX(1); }
+.nav__link[aria-current="page"] { font-weight: var(--fw-medium); }
+
+.nav__burger {
+  display: none;
+  width: 36px; height: 36px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.nav__burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: var(--color-ink);
+  transition: transform var(--dur-fast) var(--ease-out),
+              opacity   var(--dur-fast) var(--ease-out);
+}
+
+@media (max-width: 900px) {
+  .nav { padding: var(--space-3) var(--space-4); }
+  .nav__list {
+    position: absolute;
+    top: calc(100% + var(--space-3));
+    left: 0; right: 0;
+    flex-direction: column;
+    gap: var(--space-4);
+    background: var(--surface-nav);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+            backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid var(--surface-nav-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-5);
+    box-shadow: var(--shadow-nav);
+    transform: scale(0.96);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--dur-base) var(--ease-out),
+                opacity var(--dur-base) var(--ease-out);
+  }
+  .nav.is-open .nav__list {
+    transform: scale(1);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .nav__burger { display: flex; }
+}
+
+/* =========== EYEBROW (✱ pequeño label inspirado en Unfold) =========== */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-coral);
+  text-transform: none;
+}
+.eyebrow::before {
+  content: "✱";
+  display: inline-block;
+  font-size: 1.1em;
+  color: var(--color-coral-soft);
+  animation: starSpin 8s linear infinite;
+  transform-origin: 50% 55%;
+}
+@keyframes starSpin {
+  from { transform: translateY(1px) rotate(0deg); }
+  to   { transform: translateY(1px) rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow::before { animation: none; transform: translateY(1px); }
+}
+
+/* =========== BUTTONS (pill negro estilo Unfold) =========== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-300);
+  background: var(--color-ink);
+  color: var(--color-paper);
+  transition: transform var(--dur-fast) var(--ease-out),
+              background var(--dur-fast) var(--ease-out);
+  border: 1px solid var(--color-ink);
+}
+.btn:hover { transform: translateY(-1px); background: #1f1f1f; }
+.btn--ghost {
+  background: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-line);
+}
+.btn--ghost:hover {
+  background: rgba(10,10,10,0.04);
+}
+.btn__arrow {
+  display: inline-block;
+  width: 1.1em; height: 1.1em;
+  border-radius: 50%;
+  background: currentColor;
+  position: relative;
+  flex-shrink: 0;
+}
+.btn__arrow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--color-ink);
+  -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>") center / 60% no-repeat;
+          mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>") center / 60% no-repeat;
+}
+.btn--ghost .btn__arrow::after { background: var(--color-paper); }
+.btn .btn__arrow::after { background: var(--color-paper); }
+.btn--ghost .btn__arrow { background: var(--color-ink); }
+
+/* =========== SECCIONES / RITMO =========== */
+section { padding-block: clamp(4rem, 8vw, 8rem); }
+section[data-section="hero"] { padding-block: 0; }
+
+/* Título grande estilo Unfold con palabras en italic */
+.display {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-700);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  max-width: 18ch;
+}
+.display em {
+  font-style: italic;
+  font-weight: var(--fw-light);
+  color: var(--color-ink);
+}
+
+/* =========== FOOTER =========== */
+.site-footer {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  padding-block: var(--space-9) var(--space-6);
+  margin-top: var(--space-10);
+}
+/* Cuando el footer sigue una sección que ya es negra (ej. .musicians),
+   no queremos hueco entre ellas — se fusionan visualmente. */
+.site-footer--flush { margin-top: 0; }
+.site-footer .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: var(--space-7);
+  align-items: start;
+}
+.footer__brand {
+  display: inline-block;
+  line-height: 0;
+}
+.footer__logo {
+  width: clamp(180px, 22vw, 280px);
+  height: auto;
+  /* el SVG original es negro; lo invertimos para fondo oscuro y
+     le aplicamos un leve tono crema para integrarlo con el resto. */
+  filter: invert(96%) sepia(8%) saturate(280%) hue-rotate(347deg) brightness(99%) contrast(94%);
+}
+.footer__tag {
+  margin-top: var(--space-4);
+  color: rgba(244, 240, 232, 0.7);
+  max-width: 30ch;
+}
+.footer__col h4 {
+  color: rgba(244, 240, 232, 0.55);
+  font-family: var(--font-body);
+  font-size: var(--fs-200);
+  font-weight: var(--fw-regular);
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-4);
+  text-transform: uppercase;
+}
+.footer__col ul { display: flex; flex-direction: column; gap: var(--space-3); }
+.footer__col a { color: var(--color-paper); transition: color var(--dur-fast) var(--ease-out); }
+.footer__col a:hover { color: var(--color-coral-soft); }
+
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding-top: var(--space-6);
+  border-top: 1px solid rgba(244, 240, 232, 0.12);
+  font-size: var(--fs-200);
+  color: rgba(244, 240, 232, 0.55);
+}
+.footer__socials { display: flex; gap: var(--space-3); }
+.footer__socials a {
+  width: 38px; height: 38px;
+  display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(244, 240, 232, 0.15);
+  border-radius: 50%;
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+}
+.footer__socials a:hover {
+  background: var(--color-coral-soft);
+  border-color: var(--color-coral-soft);
+}
+.footer__socials svg { width: 16px; height: 16px; }
+
+@media (max-width: 800px) {
+  .footer__top { grid-template-columns: 1fr; gap: var(--space-6); }
+  .footer__bottom { flex-direction: column; align-items: flex-start; }
+}
