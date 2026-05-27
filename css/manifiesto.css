@@ -1,0 +1,141 @@
+/* =========================================================
+   PÁGINA MANIFIESTO
+   Layout editorial: cabecera tipográfica grande +
+   cuerpo en dos columnas (foto sticky izq / texto der).
+   Deliberadamente diferente de El Cuarteto:
+   · No hay hero fotográfico al 100%
+   · La foto está a la izquierda (no a la derecha)
+   · El texto manda: tipografía amplia, párrafos aireados
+   ========================================================= */
+
+/* =====================================================
+   1) CABECERA — solo tipografía, sin foto
+   ===================================================== */
+.manifesto-header {
+  padding-top: clamp(8rem, 14vw, 13rem);
+  padding-bottom: clamp(3rem, 6vw, 6rem);
+  padding-inline: var(--gutter);
+}
+.manifesto-header__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+}
+.manifesto-header__title {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-800);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-display);
+  margin-top: var(--space-4);
+  max-width: 18ch;
+}
+
+/* =====================================================
+   2) CUERPO: foto (izq sticky) + texto (der)
+   ===================================================== */
+.manifesto-body {
+  padding-block: 0 clamp(5rem, 10vw, 10rem);
+}
+.manifesto-body__inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: clamp(3rem, 6vw, 7rem);
+  align-items: start;
+}
+
+/* ---- Foto (columna izquierda, sticky) ---- */
+.manifesto-photo {
+  position: sticky;
+  top: clamp(6rem, 10vw, 8rem);
+}
+.manifesto-photo__frame {
+  position: relative;
+  /* Proporción portrait editorial (3:4) */
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+  /* Sangrado sutil a la izquierda: tira del margen para
+     que toque el gutter sin salirse del container */
+  margin-left: calc(-1 * var(--gutter) * 0.5);
+}
+.manifesto-photo__frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: grayscale(8%) contrast(1.02);
+}
+/* Velo suave en la parte inferior de la foto */
+.manifesto-photo__frame::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 35%;
+  background: linear-gradient(transparent, rgba(10,10,10,0.4));
+  pointer-events: none;
+}
+
+/* ---- Texto (columna derecha) ---- */
+.manifesto-text {
+  padding-top: clamp(0.5rem, 2vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Primer párrafo: más grande, hace de lead */
+.manifesto-text__lead {
+  font-family: var(--font-display);
+  font-weight: var(--fw-regular);
+  font-size: var(--fs-600);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-display);
+  max-width: 30ch;
+}
+
+/* Párrafos normales */
+.manifesto-text p {
+  font-family: var(--font-body);
+  font-size: var(--fs-400);
+  /* Interlineado generoso: texto literario, necesita espacio */
+  line-height: 1.65;
+  color: rgba(26, 39, 50, 0.85);
+  max-width: 52ch;
+}
+
+/* Párrafo tipo estrofa — ligero indent y letra algo mayor */
+.manifesto-text__stanza {
+  font-family: var(--font-display) !important;
+  font-style: italic;
+  font-size: var(--fs-500) !important;
+  line-height: var(--lh-snug) !important;
+  color: var(--color-display) !important;
+  padding-left: var(--space-6);
+  border-left: 3px solid var(--color-coral-soft);
+  max-width: 40ch !important;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 860px) {
+  .manifesto-body__inner {
+    grid-template-columns: 1fr;
+  }
+  .manifesto-photo {
+    position: static;
+    /* En móvil la foto va arriba y ocupa todo el ancho */
+  }
+  .manifesto-photo__frame {
+    aspect-ratio: 16 / 9;
+    margin-left: calc(-1 * var(--gutter));
+    margin-right: calc(-1 * var(--gutter));
+    border-radius: 0;
+  }
+  .manifesto-header__title { font-size: var(--fs-700); }
+}

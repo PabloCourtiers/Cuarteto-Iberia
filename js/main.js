@@ -65,7 +65,43 @@
   }
 })();
 
-/* ----- 3) Lightbox para la galería de Media ----- */
+/* ----- 3) Modales de músicos (página El Cuarteto) ----- */
+(() => {
+  document.querySelectorAll('.musician__btn').forEach(btn => {
+    const li = btn.closest('[data-musician]');
+    if (!li) return;
+    const id = 'modal-' + li.dataset.musician;
+    const modal = document.getElementById(id);
+    if (!modal) return;
+
+    btn.addEventListener('click', () => {
+      if (typeof modal.showModal === 'function') modal.showModal();
+      else modal.setAttribute('open', '');
+      document.body.style.overflow = 'hidden';
+    });
+
+    const closeBtn = modal.querySelector('.musician-modal__close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        modal.close();
+        document.body.style.overflow = '';
+      });
+    }
+    // click en el backdrop (fuera del inner) → cerrar
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.close();
+        document.body.style.overflow = '';
+      }
+    });
+    // ESC nativo también dispara 'close' en <dialog>
+    modal.addEventListener('close', () => {
+      document.body.style.overflow = '';
+    });
+  });
+})();
+
+/* ----- 4) Lightbox para la galería de Media ----- */
 (() => {
   const lb = document.getElementById('lightbox');
   if (!lb) return;
