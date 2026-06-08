@@ -40,7 +40,8 @@
 .nav__list {
   display: flex;
   align-items: center;
-  gap: clamp(var(--space-5), 4vw, var(--space-8));
+  gap: 30px;
+  margin-left: auto;
 }
 .nav__link {
   position: relative;
@@ -181,9 +182,9 @@
   -webkit-mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>") center / 60% no-repeat;
           mask: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'><line x1='5' y1='12' x2='19' y2='12'/><polyline points='12 5 19 12 12 19'/></svg>") center / 60% no-repeat;
 }
+.btn .btn__arrow::after        { background: var(--color-ink); }
+.btn--ghost .btn__arrow        { background: var(--color-ink); }
 .btn--ghost .btn__arrow::after { background: var(--color-paper); }
-.btn .btn__arrow::after { background: var(--color-paper); }
-.btn--ghost .btn__arrow { background: var(--color-ink); }
 
 /* =========== SECCIONES / RITMO =========== */
 section { padding-block: clamp(4rem, 8vw, 8rem); }

@@ -249,12 +249,13 @@
 
 /* ---- FOTO DEL CUARTETO — protagonista, MÁS GRANDE ---- */
 .piece--quartet {
-  top: 8%; left: 24%;
-  width: 52%;
+  top: 50%; left: 11%;
+  translate: 0 calc(-50% - 100px);
+  width: 78%;
   height: auto;
-  max-height: 92%;
+  max-height: 95%;
   object-fit: contain;
-  z-index: 10;
+  z-index: 13;
   filter: drop-shadow(0 14px 30px rgba(10, 10, 10, 0.18));
 }
 
@@ -272,8 +273,7 @@
   opacity: 0;
   transform: scale(var(--enter-scale, 1.15))
              rotate(var(--enter-rotate, 0deg));
-  /* Duración reducida a la mitad: 0.2s por pieza */
-  animation: pieceEnter 0.2s var(--ease-out) forwards;
+  animation: pieceEnter var(--enter-dur, 0.2s) var(--ease-out) forwards;
   animation-delay: var(--enter-delay, 0s);
 }
 
@@ -331,9 +331,17 @@
   line-height: var(--lh-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--color-display);
-  max-width: 28ch;
+  max-width: 36ch;
 }
 .review__cta { align-self: flex-start; }
+@media (max-width: 640px) {
+  .piece--quartet {
+    width: 125%;
+    left: 50%;
+    translate: -50% calc(-50% - 100px);
+  }
+}
+
 @media (max-width: 720px) {
   .review__inner { grid-template-columns: 1fr; gap: var(--space-5); }
 }

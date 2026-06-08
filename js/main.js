@@ -40,28 +40,27 @@
   const rand = (min, max) => Math.random() * (max - min) + min;
   const signedAngle = () => {
     const sign = Math.random() < 0.5 ? -1 : 1;
-    return sign * rand(20, 30);          // |20°..30°|
+    return sign * rand(3, 5);            // |3°..5°|
   };
 
-  /* Distribuye delays para 'others' entre 0 y 0.9s, y deja
-     la foto central a 1.05s para que sea la última en aparecer.
-     Total ≈ 1.25s (mitad del tiempo original). */
-  const maxDelayOthers = 0.9;
-  // baraja aleatoriamente
+  /* Distribuye delays para 'others' entre 0 y 2.5s.
+     El cuarteto arranca desde el inicio (delay 0) y tarda
+     los 3.5s completos en aparecer. Total animación: 3.5s. */
+  const maxDelayOthers = 2.5;
   const shuffled = others.map(p => ({ p, k: Math.random() })).sort((a,b) => a.k - b.k).map(o => o.p);
   shuffled.forEach((piece, i) => {
-    const delay = (i / (shuffled.length - 1)) * maxDelayOthers; // 0..0.9
-    // pequeño jitter ±0.05s para que no se vea matemático
+    const delay = (i / (shuffled.length - 1)) * maxDelayOthers;
     const jitter = rand(-0.05, 0.05);
-    piece.style.setProperty('--enter-scale',  rand(0.85, 1.2).toFixed(3));
+    piece.style.setProperty('--enter-scale',  rand(0.81, 1.25).toFixed(3));
     piece.style.setProperty('--enter-rotate', signedAngle().toFixed(2) + 'deg');
     piece.style.setProperty('--enter-delay',  Math.max(0, (delay + jitter)).toFixed(3) + 's');
   });
 
   if (quartet) {
-    quartet.style.setProperty('--enter-scale',  '0.9');
+    quartet.style.setProperty('--enter-scale',  '0.875');
     quartet.style.setProperty('--enter-rotate', '0deg');
-    quartet.style.setProperty('--enter-delay',  '1.05s');
+    quartet.style.setProperty('--enter-delay',  '0s');
+    quartet.style.setProperty('--enter-dur',    '3.5s');
   }
 })();
 

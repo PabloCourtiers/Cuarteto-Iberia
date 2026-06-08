@@ -36,6 +36,8 @@
   position: absolute;
   z-index: 2;
   left: 0; right: 0; bottom: 0;
+  max-width: 1180px;
+  margin-inline: auto;
   padding: clamp(2rem, 6vw, 5rem) var(--gutter);
   color: var(--color-paper);
 }
@@ -53,18 +55,25 @@
   margin-top: var(--space-3);
   color: var(--color-paper);
 }
-.page-hero__cite {
-  display: inline-block;
+.page-hero__members {
+  display: block;
   margin-top: var(--space-3);
   font-family: var(--font-body);
   font-size: var(--fs-200);
   color: rgba(244, 240, 232, 0.7);
   letter-spacing: var(--tracking-wide);
 }
-.page-hero__cite::before { content: "— "; }
 
 /* =====================================================
-   2) BIO a dos columnas
+   2) BANDA DIVISORIA azul (entre hero y sección bio)
+   ===================================================== */
+.divider-band {
+  height: 60px;
+  background: var(--color-divider-band);
+}
+
+/* =====================================================
+   3) BIO a dos columnas
    ===================================================== */
 .bio-page {
   padding-block: clamp(5rem, 10vw, 10rem);
